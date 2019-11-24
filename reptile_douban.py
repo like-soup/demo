@@ -4,7 +4,7 @@ import requests
 import time
 
 
-def crawl_joke_list(page):
+def crawl_comments_list(page):
 
     print('let go to page {} in douban.com'.format(int(page)))
     page_flag = str((page - 1) * 20)
@@ -42,4 +42,4 @@ def crawl_joke_list(page):
 if __name__ == '__main__':
 
     for page in range(1, 4):
-        crawl_joke_list(page)
+        crawl_comments_list(page)
