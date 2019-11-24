@@ -8,10 +8,11 @@ def crawl_joke_list(page):
 
     print('let go to page {} in douban.com'.format(int(page)))
     page_flag = str((page - 1) * 20)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
     # url = "https://movie.douban.com/subject/1292000/comments?status=P"
     url_page = "https://movie.douban.com/subject/1292000/comments?start={}&limit=20&sort=new_score&status=P".format(page_flag)
 
-    res = requests.get(url_page)
+    res = requests.get(url_page, headers=headers)
     # 获取每个段子div的正则
     pattern = re.compile("<div class=\"comment-item\" data-cid=.*?<div class=\"comment\">.*?</div>", re.S)
 
