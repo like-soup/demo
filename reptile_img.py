@@ -46,14 +46,7 @@ def delete_date():
     delete_cmd = "rm ./data/*.jpg"
     subprocess.run(delete_cmd, shell=True)
 
+
 if __name__ == '__main__':
     delete_date()
     get_img_of_movie(url)
-#
-# 翻页
-# j = 0
-# for i in range(12, 37, 12):
-#     url = 'http://www.infoq.com/cn/presentations' + str(i)
-#     j += 1
-#     print('第 %d 页' % j)
-#     craw3(url)

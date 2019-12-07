@@ -55,13 +55,7 @@ def delete_date():
 if __name__ == '__main__':
 
     delete_date()
+    # 指定查看页数
     for page in range(1, 3):
         get_movies_of_the_page(page)
-#
-# 翻页
-# j = 0
-# for i in range(12, 37, 12):
-#     url = 'http://www.infoq.com/cn/presentations' + str(i)
-#     j += 1
-#     print('第 %d 页' % j)
-#     craw3(url)
+
