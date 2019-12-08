@@ -13,7 +13,7 @@ def crawl_comments_list(page):
     url_page = "https://movie.douban.com/subject/1292000/comments?start={}&limit=20&sort=new_score&status=P".format(page_flag)
 
     res = requests.get(url_page, headers=headers)
-    # 获取每个段子div的正则
+    # 获取每段div的正则
     pattern = re.compile("<div class=\"comment-item\" data-cid=.*?<div class=\"comment\">.*?</div>", re.S)
 
     # print('print res.text...')
