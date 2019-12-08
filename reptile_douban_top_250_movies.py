@@ -24,7 +24,12 @@ def download_jpg(image_url, image_localpath):
 
 
 # 取得海报图片
-def get_img_of_movie(url):
+def get_movie_img_of_the_page(page):
+    page_flag = str(25 * (page - 1))
+    # 根据页数构造url
+    url = "https://movie.douban.com/top250?start={}&filter=".format(page_flag)
+    print("get the movies of page {}".format(page))
+
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
     for pic_href in soup.find_all('div', class_='pic'):
@@ -38,14 +43,7 @@ def get_img_of_movie(url):
             download_jpg(imgurl, imgpath)
 
 
-def get_movies_of_the_page(page):
-    page_flag = str(25 * (page - 1))
-    url = "https://movie.douban.com/top250?start={}&filter=".format(page_flag)
-    print("get the movies of page {}".format(page))
-    get_img_of_movie(url)
-
-
-def delete_date():
+def delete_data():
     cmd = "pwd"
     subprocess.run(cmd, shell=True)
     delete_cmd = "rm ./data/*.jpg"
@@ -54,8 +52,8 @@ def delete_date():
 
 if __name__ == '__main__':
 
-    delete_date()
+    delete_data()
     # 指定查看页数
-    for page in range(1, 3):
-        get_movies_of_the_page(page)
+    for page in range(1, 5):
+        get_movie_img_of_the_page(page)
 
